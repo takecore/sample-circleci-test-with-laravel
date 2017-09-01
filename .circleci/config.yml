@@ -12,7 +12,7 @@ jobs:
       - run:
           name: Run tests
           command: |
-            docker-compose run app-servie-name /bin/bash -c '\
+            docker-compose run sample-laravel-app /bin/bash -c '\
               cp .env.example .env && \
               composer install --no-interaction && \
               php artisan key:generate && \
