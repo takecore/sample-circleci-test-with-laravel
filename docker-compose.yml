@@ -12,11 +12,9 @@ services:
     volumes:
       - ./app:/usr/src/app
       - ./compose/apache/000-default.conf:/etc/apache2/sites-enabled/000-default.conf
-      - ./compose/wait-for-it.sh:/tmp/wait-for-it.sh
     working_dir: /usr/src/app
     depends_on:
       - sample-mysql
-    entrypoint: /tmp/wait-for-it.sh -t 120 sample-mysql:3306 -- docker-php-entrypoint apache2-foreground
 
   sample-mysql:
     image: mysql:5.7
